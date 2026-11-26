@@ -65,7 +65,7 @@ async function boot() {
   bindEvents();
 
   try {
-    const response = await fetch("data/vocab.json");
+    const response = await fetch("data/vocab.json", { cache: "no-cache" });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
