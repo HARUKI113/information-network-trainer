@@ -944,7 +944,7 @@
           "id": "lesson-4-q019",
           "number": 19,
           "answer_language": "ja",
-          "prompt": "問18のネットワークで、非指定ポート として選出されるのはどれか。",
+          "prompt": "図のネットワークで、STPの非指定ポートとして選出されるのはどれか。",
           "choices": [
             "SW-A の Fa0/2",
             "SW-C の Fa0/2",
@@ -953,7 +953,8 @@
           ],
           "explanation": "指定ポートは次のとおり。ルートブリッジ SW-B の Fa0/1・Fa0/2 はすべて指定ポート。SW-A–SW-C 間はルートパスコストが SW-A＝19、SW-C＝38 なので SW-A Fa0/2。SW-C–SW-D 間は SW-C＝38、SW-D＝19 なので SW-D Fa0/1。ルートポートにも指定ポートにもならずに最後まで残った SW-C Fa0/2 が非指定ポートとなり、SW-C–SW-D 間のリンクがブロックされる。",
           "source_form_question": 19,
-          "answer": "SW-C の Fa0/2"
+          "answer": "SW-C の Fa0/2",
+          "image_path": "data/images/lesson4-q18.png"
         },
         {
           "id": "lesson-4-q020",
@@ -975,7 +976,7 @@
           "id": "lesson-4-q021",
           "number": 21,
           "answer_language": "ja",
-          "prompt": "問20のネットワークで、非指定ポート として選出されるのはどれか。",
+          "prompt": "図のネットワークで、STPの非指定ポートとして選出されるのはどれか。",
           "choices": [
             "SW-X の Gi0/1",
             "SW-Z の Gi0/1",
@@ -984,13 +985,14 @@
           ],
           "explanation": "SW-Y のポートはすべて指定ポート。SW-X–SW-Z 間（Gi0/1 同士）は、両方ともルートパスコストが 19 で同じ。そこで BPDU の送信元ブリッジIDを比べると、プライオリティ値は同じ 32768 なので MAC アドレスで比べ、SW-Z（…0001）＜ SW-X（…0003）。よって SW-Z Gi0/1 が指定ポート、残った SW-X Gi0/1 が非指定ポートとなる。1Gbps の速いリンクでもブロックされることがある点に注意（STP は「ルートブリッジまでのコスト」で決めるため）。",
           "source_form_question": 21,
-          "answer": "SW-X の Gi0/1"
+          "answer": "SW-X の Gi0/1",
+          "image_path": "data/images/lesson4-q20.png"
         },
         {
           "id": "lesson-4-q022",
           "number": 22,
           "answer_language": "ja",
-          "prompt": "問20のネットワークで、SW-Y と SW-X の間のリンク（Fa0/1 同士）に障害が発生した。このとき STP によって起こることとして正しいものはどれか",
+          "prompt": "図のネットワークで、SW-Y と SW-X の間のリンク（Fa0/1 同士）に障害が発生した。このとき STP によって起こることとして正しいものはどれか。",
           "choices": [
             "SW-X はどこにも通信できなくなる",
             "SW-X Gi0/1 のブロックが解放されてルートポートとなり、SW-X → SW-Z → SW-Y の経路（累計コスト 23）で通信を続ける",
@@ -999,7 +1001,8 @@
           ],
           "explanation": "障害が発生すると変更がルートブリッジに伝えられ、各スイッチに通知が届いて 再計算 が行われる。ブロックしていたポート（SW-X Gi0/1）を解放し、予備の経路（4 + 19 = 23）で通信を続ける。ルートブリッジはブリッジIDで決まるので、SW-Y のまま変わらない（c は誤り）。",
           "source_form_question": 22,
-          "answer": "SW-X Gi0/1 のブロックが解放されてルートポートとなり、SW-X → SW-Z → SW-Y の経路（累計コスト 23）で通信を続ける"
+          "answer": "SW-X Gi0/1 のブロックが解放されてルートポートとなり、SW-X → SW-Z → SW-Y の経路（累計コスト 23）で通信を続ける",
+          "image_path": "data/images/lesson4-q20.png"
         },
         {
           "id": "lesson-4-q023",
@@ -2103,7 +2106,7 @@
           "id": "review100-q003",
           "number": 3,
           "answer_language": "ja",
-          "prompt": "図を参照してください。TCP/IPモデルとOSI参照モデルの対応表である。（Y）に対応するOSI参照モデルの層はどれですか。（2つ選択してください。）",
+          "prompt": "TCP/IPモデルのネットワークインタフェース層に対応するOSI参照モデルの層はどれですか。（2つ選択してください。）",
           "choices": [
             "物理層",
             "データリンク層",
