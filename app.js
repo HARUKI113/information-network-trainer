@@ -5,7 +5,7 @@ const state = {
   items: [],
   questions: [],
   stats: {},
-  studyMode: "flash",
+  studyMode: "quiz",
   mode: "mixed",
   queue: "all",
   testFilter: "all",
@@ -193,19 +193,6 @@ function normalizeAnswerLanguage(value) {
 }
 
 function bindEvents() {
-  document.querySelectorAll("[data-study-mode]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const nextStudyMode = button.dataset.studyMode;
-      if (state.studyMode === nextStudyMode) {
-        return;
-      }
-
-      state.studyMode = nextStudyMode;
-      setActive("[data-study-mode]", button);
-      nextQuestion();
-    });
-  });
-
   document.querySelectorAll("[data-mode]").forEach((button) => {
     button.addEventListener("click", () => {
       const nextMode = button.dataset.mode;
@@ -781,7 +768,7 @@ function renderMissedList(missed) {
 
   if (!missed.length) {
     const item = document.createElement("li");
-    item.innerHTML = "<strong>なし</strong><span>「もう一度」「迷った」のカードがここに残ります。</span>";
+    item.innerHTML = "<strong>なし</strong><span>間違えた問題がここに表示されます。</span>";
     els.missedList.append(item);
     return;
   }
